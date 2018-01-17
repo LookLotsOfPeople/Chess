@@ -1,0 +1,49 @@
+package Pieces;
+
+public class Rook extends Piece {
+    public Rook(int y, int x, boolean white) {
+        this.x = x;
+        this.y = y;
+        this.white = white;
+    }
+
+    public boolean checkValidMove(int y, int x, Piece[][] board) {
+        //Defaulted Moves
+        if (this.x != x && this.y == y) {
+            if (this.x > x) {
+                for (int i = 1; i < this.x - x; i++) {
+                    if (board[this.y][this.x - i] != null) {
+                        return false;
+                    }
+                }
+                return true;
+            } else {
+                for (int i = 1; i < x - this.x; i++) {
+                    if (board[this.y][this.x + i] != null) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        } else if (this.x == x && this.y != y) {
+            if (this.y > y) {
+                for (int i = 1; i < this.y - y; i++) {
+                    if (board[this.y - i][this.x] != null) {
+                        return false;
+                    }
+                }
+                return true;
+            } else {
+                for (int i = 1; i < y - this.y; i++) {
+                    if (board[this.y + i][this.x] != null) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+
+        //Defaults False
+        return false;
+    }
+}
