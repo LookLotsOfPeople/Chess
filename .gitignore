@@ -1,2 +1,5 @@
 .idea
 chess-api.iml
+settings.xml
+*.class
+*.kotlin_module
